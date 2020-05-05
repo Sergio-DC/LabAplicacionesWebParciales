@@ -37,7 +37,7 @@ Create table PRODUCTOS (
  Primary Key (clave)) ENGINE = MyISAM;
 
 Create table RECIBOS (
-	folio Int NOT NULL,
+	folio Int NOT NULL AUTO_INCREMENT,
 	user_id Varchar(20) NOT NULL,
 	fecha Date NOT NULL,
 	hora Time NOT NULL,
