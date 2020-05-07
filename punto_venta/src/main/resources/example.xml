@@ -9,7 +9,7 @@
 <struts>
     <package name="example" namespace="/example" extends="struts-default">
 
-        <default-action-ref name="HelloWorld" />
+        <default-action-ref name="MainLogin" />
 
         <action name="HelloWorld" class="lab_webapps.parciales.punto_venta.example.HelloWorld">
             <result>/WEB-INF/example/HelloWorld.jsp</result>
@@ -25,6 +25,9 @@
         </action>
 
         <!-- Add additional "example" package actions here. -->
+        <action name="MainLogin" class="lab_webapps.parciales.punto_venta.example.Login">
+            <result>/WEB-INF/example/Login.jsp</result>
+        </action>
 
     </package>
 </struts>
