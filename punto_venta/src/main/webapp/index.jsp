@@ -46,6 +46,9 @@
 					<a href="agregar_producto.jsp">Alta Producto</a>
 				</li>
 				<li>
+					<a href="agregar_inventario.jsp">Agregar Inventario</a>
+				</li>
+				<li>
 					<a href="report.jsp">Report</a>
 				</li>
 			</ul>

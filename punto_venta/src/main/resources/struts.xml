@@ -25,6 +25,10 @@
 		<action name="agregar_producto" class="action.AgregarProductoAction">
 			<result name="REGISTER" type="json"></result>
 		</action>
+		
+		<action name="agregar_inventario" class="action.AgregarInventarioAction" method="buscarPorClave">
+			<result name="success" type="json"></result>
+		</action>
 
     </package>
 
