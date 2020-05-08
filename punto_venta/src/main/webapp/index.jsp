@@ -1,5 +1,6 @@
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <script type="text/javascript">
 	function registerUser() {
@@ -20,6 +21,17 @@
 			}
 		});
 	}
+	
+	function setVisible(e) {
+		console.log("Me presionaste");
+		$('#chunky').load('chunk.jsp'); 
+	}
+	
+	function unsetVisible(e) {
+		$('#chunky').empty();
+	}
+	
+	
 </script>
 </head>
 <body>
@@ -31,7 +43,7 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li>
-					<a href="#">Register</a>
+					<a href="agregar_producto.jsp">Alta Producto</a>
 				</li>
 				<li>
 					<a href="report.jsp">Report</a>
@@ -63,5 +75,14 @@
 			<div class="text-center" id="resp" style="margin-top: 14px;"></div>
 		</div>
 	</div>
+	
+	<button id="btn-visible" onclick="setVisible(this);">Hacer visible</button>
+	<button id="btn-not-visible" onclick="unsetVisible(this);">Hacer NO visible</button>
+	
+	<div id="chunky">
+	
+	</div>
+	
+	
 </body>
 </html>
