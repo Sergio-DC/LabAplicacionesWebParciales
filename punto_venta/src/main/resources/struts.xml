@@ -6,18 +6,21 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
     <constant name="struts.devMode" value="true"/>
 
-    <include file="example.xml"/>
 
-    <package name="default" namespace="/" extends="struts-default">
+    <package name="default" namespace="/" extends="struts-default,json-default">
 
-        <default-action-ref name="index"/>
 
-        <action name="index">
-            <result type="redirectAction">
-                <param name="actionName">HelloWorld</param>
-                <param name="namespace">/example</param>
-            </result>
+        <action name="home">
+            <result>index.jsp</result>
         </action>
+        
+        <action name="registeruser" class="action.RegisterAction">
+			<result name="REGISTER" type="json"></result>
+		</action>
+		
+		<action name="report" class="action.ReportAction">
+			<result name="REPORT" type="json"></result>
+		</action>
 
     </package>
 
