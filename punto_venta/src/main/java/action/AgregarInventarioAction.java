@@ -1,5 +1,7 @@
 package action;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class AgregarInventarioAction extends ActionSupport {
 	private int clave;//Representa la clave del producto
 	private int cantidad;//Se utiliza para actualizar la propiedad inventario de un Producto
 	private static List<Productos> lista_productos;//Se utiliza para generar registro de una BD improvisada, eliminar si ya no se necesita
-	static int veces = 0;
+	private InputStream inputStream;
 
 	//Simula una BD con 5 registros de la tabla Productos
 	public AgregarInventarioAction() {
@@ -23,11 +25,8 @@ public class AgregarInventarioAction extends ActionSupport {
 	//Busca por clave un Producto
 	public String buscarPorClave() {
 		for(Productos item : lista_productos) {
-			System.out.println("Lista productos: " + item.getDescripcion());
 			if(item.getClave() == this.clave) {
-				System.out.println("Produto Encontrado");
 				producto = item;
-				System.out.println(producto.toString());
 				return ActionSupport.SUCCESS;
 			}
 		}
@@ -35,9 +34,15 @@ public class AgregarInventarioAction extends ActionSupport {
 	}
 	
 	//Se encarga de actualizar la propiedad inventario de un objeto(Productos) en especifico 
-	public String actualizarInventario() {
-		return "UPDATED";
+	public String actualizarInventario() throws Exception{
+		System.out.println("Clave: " + this.clave + "  Cantidad: " + this.cantidad);
+		inputStream = new ByteArrayInputStream("<p>Producto Actualizado</p>".getBytes("UTF-8"));
+		return ActionSupport.SUCCESS;
 		
+	}
+	
+	public InputStream getInputStream() {
+		return inputStream;
 	}
 	
 	private ArrayList<Productos> getDataBase() {
@@ -105,7 +110,6 @@ public class AgregarInventarioAction extends ActionSupport {
 		this.producto = producto;
 	}
 	public Productos getProducto() {
-		System.out.println("Que retorna: " + producto.toString());
 		return producto;
 	}
 	

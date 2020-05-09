@@ -24,7 +24,7 @@
 			  		</div>
 		  		</div>
 		  		
-	  			<div class="form-group row">
+	  			<div class="form-group row" id="actualizar-form">
 		  			<label class="col-4">Descripcion</label>
 		  			<div class="col-6">
 		  				<p id="descripcion">Jabon</p>
@@ -36,8 +36,11 @@
 		  				<p>PZA</p>
 		  			</div>
 	  			</div>
-	  			
-	  			<div class="form-group row">				
+		 </form>		
+  		</div>
+  		<div class="row justify-content-center">
+  			<form action="" class="row" id="form-actualizar">
+			 	<div class="form-group row">				
 					<div class="input-group mb-2 mr-sm-2 col-12">
 						<div class="">
 							<input type="text" class="form-control" placeholder="Cantidad de Entrada" id="cantidad">
@@ -47,9 +50,13 @@
 						</div>
 			  		</div>
 	  			</div>
-		 </form>		
-		
+		 	</form>	
+		 		
   		</div>
+		<div class="row justify-content-center" >
+  			<div id="message"></div>
+		</div>
+  		
 	</div>
 <script type="text/javascript">
 		
@@ -57,7 +64,7 @@
 			var clave = $('#clave').val();
 			$.ajax({
 				type : "POST",
-				url: "agregar_inventario.action",
+				url: "buscar_producto.action",
 				data : "clave=" + clave,
 				success : function(data) {
 					var producto = data.producto
@@ -70,6 +77,25 @@
 					alert("Some error occured.");
 				}
 			});
+			event.preventDefault();
+		});
+		
+		$('#form-actualizar').submit(function(event){
+			var clave = $('#clave').val();
+			var cantidad = $('#cantidad').val();
+			$.ajax({
+				type: 'POST',
+				url: 'actualizar_producto_inventario.action',
+				data: 'clave=' + clave + '&cantidad=' + cantidad,
+				success : function(data) {
+					console.log("Actualizacion Exitosa: ", data);
+					$('#message').html(data);
+				},
+				error: function (data) {
+					alert("Some error occured.");
+				}
+			});
+			
 			event.preventDefault();
 		});
 </script>  
