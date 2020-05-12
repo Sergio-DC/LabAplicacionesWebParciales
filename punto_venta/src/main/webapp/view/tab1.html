@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="width:100%;">
+    <form action="" id="form1" style="margin-top:2em">
+            <div class="pl-4">
+                    <h3 class="">
+                    <p class="text-center">Discounted Payback Period</p>
+                    </h3>
+                    <p class="font-italic font-weight-bold">Method used to determine when the initial investment will be eraned back while considering the time value money(i.e. interests) used to support the project.</p>  
+            </div>
+            <hr size="30" color="black">
+                   
+        <div class="row justify-content-around">
+            
+            <div class="col-5">
+                
+                <div class="form-group row">
+                    <label for="periodosID1" class="col-sm-8 col-md-5 col-lg-4 col-xl-4">Periodos</label>
+                    <div class="col-sm-8 col-md-4 col-lg-4 col-xl-4">
+                        <input type="text" id="periodosID1" value="" class="form-control form-control-sm">
+                        <div id="feedbackPeriodos1"><p class="" style="font-size:13px; font-color: black;"><i></i></p></div>
+                    </div>  
+                </div>
+                <div class="form-group row">
+                    <label for="principalID1" class="col-sm-8 col-md-5 col-lg-4 col-xl-4">Principal</label>
+                    <div class="col-sm-8 col-md-4 col-lg-4 col-xl-4">
+                        <input type="text" id="principalID1" class="form-control form-control-sm">
+                        <div id="feedbackPrincipal1"><p class="" style="font-size:13px; font-color: black;"><i></i></p></div>
+                    </div>
+                </div>
+                <div class="form-group row ml-2">
+                    <div class="col-sm-5 col-md-8 col-lg-10 col-xl-10 custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch2">
+                        <label class="custom-control-label" for="customSwitch2">Payback/Disc Payback</label>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="interesID1" class="col-sm-8 col-md-5 col-lg-4 col-xl-4">Tasa de Interés</label>
+                    <div class="col-sm-8 col-md-4 col-lg-4 col-xl-4">
+                        <input type="text" id="interesID1" value="" class="form-control form-control-sm" disabled placeholder="(%)">
+                        <div id="feedbackInteres1"><p class="" style="font-size:13px; font-color: black;"><i></i></p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group row">
+                    <div class=" col-sm-6 col-md-10 col-lg-10 col-xl-12 custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                            <label class="custom-control-label" for="customSwitch1">Activa para usar Salvage Value</label>                        
+                    </div> 
+                </div>
+                <div class="form-group row">
+                    <label for="svID1" class="col-sm-8 col-md-3 col-lg-3 col-xl-3"><p id="fontStyle">Salvage Value</p></label>
+                    <div class="col-sm-8 col-md-4 col-lg-4 col-xl-4">
+                        <input type="text" name="" id="svID1" class="form-control form-control-sm" placeholder="Salvage Value" disabled>
+                        <div id="feedbackSV1"><p class="" style="font-size:13px; font-color: black;"><i></i></p></div>
+                    </div>
+                </div>
+                <div class="form-group row">        
+                    <label for="p_svID1" class="col-sm-8 col-md-3 col-lg-3 col-xl-3"><p id="fontStyle">Period of SV</p></label>            
+                    <div class="col-sm-8 col-md-4 col-lg-4 col-xl-4">
+                        <input type="text" name="" id="p_svID1" class="form-control form-control-sm" placeholder="Period" disabled>
+                        <div id="feedbackP_SV1"><p class="" style="font-size:13px; font-color: black;"><i></i></p></div>
+                    </div> 
+                </div>
+                <div class="form-group row">
+                    <button class="btn btn-outline-dark col-sm-6 col-md-4 col-lg-3 col-xl-3 mr-1" id="bCalcular1">Calcular</button>
+                    <button class="btn btn-outline-dark col-sm-6 col-md-4 col-lg-3 col-xl-3 mr-1" id="bLimpiar1">Limpiar Datos</button>
+                </div>
+            </div>                
+        </div>           
+            <div class="row justify-content-center">
+                <div class="col-8 table-responsive{-sm|-md|-lg|-xl} table-wrapper-scroll-y my-custom-scrollbar">
+                    <table class="table table-sm table-bordered text-centered"><!--Definition of the table-->
+                        <thead class="thead-default">
+                            <tr>
+                                <th>N</th>
+                                <th>Inflows</th>
+                                <th>Outflows</th>
+                                <th>Net Cash Flow</th>
+                                <th>Cumulative Cash Flow</th>
+                            </tr>
+                        </thead>
+                        <tbody id="datosTabla">
+                            
+                        </tbody>                            
+                    </table>
+                </div>
+            </div>                                        
+    </form> 
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- <script src="../frameworks/jquery-3.3.1.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="../frameworks/bootstrap.css">
+<script src="../js-scripts/tab1_controller.js" type="module"></script>
+</html>
