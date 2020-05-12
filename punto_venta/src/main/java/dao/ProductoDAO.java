@@ -35,7 +35,7 @@ public class ProductoDAO {
 			ps.setString(2, descripcion);
 			ps.setString(3, unidad);
 			ps.setString(4, Integer.toString(inventario));
-			ps.setString(4, Integer.toString(precio));
+			ps.setString(5, Integer.toString(precio));
 			
 			ps.execute();
 			conn().close();
@@ -100,7 +100,7 @@ public class ProductoDAO {
 		return null;
 	}
 	
-	// Buscar producto mediante la clave y regresar la clave y descripcion
+	// Buscar producto mediante la clave y regresar la clave y descripcion Para la tabla
 	// REVISAR SI FUNCIONA CORRECTAMENTE EL STATEMENT
 	public static List<Productos> searchListProducto(int clave) throws SQLException, Exception
 	{
