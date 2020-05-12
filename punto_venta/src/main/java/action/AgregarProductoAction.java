@@ -2,6 +2,7 @@ package action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.ProductoDAO;
 import pojo.Productos;
 
 public class AgregarProductoAction extends ActionSupport{
@@ -25,6 +26,21 @@ public class AgregarProductoAction extends ActionSupport{
 
 	public void setProductos(Productos productos) {
 		this.productos = productos;
+	}
+	
+	public String agregarProducto()
+	{
+		//ProductoDAO daoproducto = new ProductoDAO();
+		try
+		{
+			ProductoDAO.insertProducto(productos.getClave(), productos.getDescripcion(), productos.getUnidad(), productos.getInventario(), productos.getPrecio());
+			return SUCCESS;
+		}catch (Exception e)
+		{
+			e.printStackTrace();
+			//mensajeError = "Error al crear producto";
+			return ERROR;
+		}
 	}
 
 	
