@@ -36,6 +36,10 @@
         		<param name="inputName">inputStream</param>
     		</result>
 		</action>
+		
+		<action name="consultar_productos" class="action.ListaProductoAction">
+			<result name="success" type="json"></result>
+		</action>
 
     </package>
 
