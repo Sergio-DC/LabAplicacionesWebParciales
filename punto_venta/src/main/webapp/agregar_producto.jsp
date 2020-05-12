@@ -42,7 +42,7 @@
 			  
 			  <div class="form-group">
 					<label for="pwd">Precio de Venta:</label>
-					<input type="text" class="form-control" placeholder="$12.50" id="precio">
+					<input type="text" class="form-control" placeholder="$12" id="precio">
 			  </div>
 			  
 			  <input type="submit" onclick="agregarProducto();" value="Enviar datos">

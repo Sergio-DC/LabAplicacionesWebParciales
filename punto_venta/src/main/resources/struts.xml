@@ -22,7 +22,7 @@
 			<result name="REPORT" type="json"></result>
 		</action>
 		
-		<action name="agregar_producto" class="action.AgregarProductoAction">
+		<action name="agregar_producto" class="action.ProductoAction" method="agregarProducto">
 			<result name="REGISTER" type="json"></result>
 		</action>
 		
