@@ -1,26 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista de Productos</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta charset="ISO-8859-1">
+	<title>Lista Usuarios</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 	<%@include file="navbar.jsp" %>
     <div class="container mt-3">
-      		<H3 class="text-center">Lista Productos</H3>
+      		<H3 class="text-center">Lista Usuarios</H3>
       		
             <form action="" class="">
                 <div class="form-group row justify-content-center">
                     <div class="col-4">
                         <input type="text"  placeholder="Ingresa la clave del producto" id="CodigoB" class="form-control" required>
                     </div>
-                    <a name="" href="agregar_producto.jsp" class="btn btn-outline-success btn-lg" onclick="">Nuevo Producto</a>
+                    <a name="" href="agregar_producto.jsp" class="btn btn-outline-success btn-lg" onclick="">Nuevo Usuario</a>
                     <!-- <input type="button" name="" class="btn btn-outline-danger btn-lg" onclick="limpiar()" value="Limpiar"> -->
            
                 </div>
@@ -32,9 +30,10 @@
                     <table class="table table-striped" id="table-entrada">
                         <thead class="thead-dark">
                             <tr>
-                                <th>Clave</th>
-                                <th>Descripción</th>
-                                <th>Precio</th>
+                                <th>Usuario</th>
+                                <th>Nombre</th>
+                                <th>Rol</th>
+                                <th>Estatus</th>
                                 
                             </tr>
                         </thead>
@@ -68,8 +67,10 @@
 	  $('#CodigoB').removeClass('is-invalid');
 	}
 	function actualizarInfo() {
-	  $.get("consultar_productos", function (response, status) {
-	      var registros = genTemplate(response.lista_productos);
+	  $.get("consultar_usuarios", function (response, status) {
+		  console.log("Pase 3");
+		  console.log("Msg: ", response);
+	      var registros = genTemplate(response.lista_usuarios);
 	
 	        $('#tbody-entrada').html(registros);
 	    });
@@ -84,8 +85,8 @@
 		    var b = 10;
 		    console.log(`Fifteen is ${a}`);
 		    data.forEach(element => {
-			      registros += '<tr><td>' + element.clave + '</td><td>' + element.descripcion + '</td>'
-			      registros += '</td><td>' + element.precio + '</td></tr>';
+			      registros += '<tr><td>' + element.user_id + '</td><td>' + element.user_name + '</td>';
+			      registros += '<td>' + element.user_rol + '</td><td>' + element.user_status + '</td></tr>';
 		    });
 		    //console.log("registros: ", registros);
 		    return registros;
@@ -95,7 +96,6 @@
 		  }	      
 	}
 </script>
-   
+
 </body>
 </html>
-    

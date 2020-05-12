@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import pojo.Productos;
 
 public class ListaProductoAction extends ActionSupport{
-	private Productos producto;
+	private static final long serialVersionUID = 1L;
 	private List<Productos> lista_productos;
 	
 	public ListaProductoAction() {//Eliminar cuando ya no se ocupe
@@ -72,8 +72,4 @@ public class ListaProductoAction extends ActionSupport{
 	public List<Productos> getLista_productos() {
 		return lista_productos;
 	}
-
-	public void setLista_productos(List<Productos> lista_productos) {
-		this.lista_productos = lista_productos;
-	}	
 }

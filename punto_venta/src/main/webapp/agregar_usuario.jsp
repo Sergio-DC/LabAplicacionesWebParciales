@@ -12,8 +12,9 @@
 
 
 <body>
-	<div class="container">
-		<H3 class="text-center m-5">Alta Usuario</H3>
+	<%@include file="navbar.jsp" %>
+	<div class="container mt-3">
+		<H3 class="text-center">Alta Usuario</H3>
 		
 		<div class="row justify-content-center">
 			<form id="form-producto" action="" class="">

@@ -41,6 +41,10 @@
     		</result>
 		</action>
 		
+		<action name="consultar_usuarios" class="action.ListaUsuarioAction">
+			<result name="success" type="json"></result>
+		</action>
+		
 		<action name="consultar_productos" class="action.ListaProductoAction">
 			<result name="success" type="json"></result>
 		</action>
