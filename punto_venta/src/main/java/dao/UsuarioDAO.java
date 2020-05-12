@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import pojo.Productos;
 import pojo.Usuarios;
 
 public class UsuarioDAO {
@@ -105,7 +104,7 @@ public class UsuarioDAO {
 	
 	// Buscar usuario mediante el id y regresar el id y nombre Para la tabla
 	// REVISAR SI FUNCIONA CORRECTAMENTE EL STATEMENT
-	public static List<Usuarios> searchListProducto(String user_id) throws SQLException, Exception
+	public static List<Usuarios> searchListUsuario(String user_id) throws SQLException, Exception
 	{
 		String sql = "SELECT user_id, user_name FROM USUARIOS WHERE user_id = ?";
 		ResultSet rs = null;
@@ -137,7 +136,7 @@ public class UsuarioDAO {
 	}
 	
 	// Buscar usuario mediante el id
-	public static Usuarios searchProducto(String user_id) throws SQLException, Exception
+	public static Usuarios searchUsuario(String user_id) throws SQLException, Exception
 	{
 		ResultSet rs = null;
 		Usuarios usuario = new Usuarios();
