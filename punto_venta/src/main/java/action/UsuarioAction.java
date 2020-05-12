@@ -4,9 +4,7 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import dao.ProductoDAO;
 import dao.UsuarioDAO;
-import pojo.Productos;
 import pojo.Usuarios;
 
 public class UsuarioAction extends ActionSupport{
