@@ -11,7 +11,7 @@ public class ListaProductoAction extends ActionSupport{
 	private Productos producto;
 	private List<Productos> lista_productos;
 	
-	public ListaProductoAction() {
+	public ListaProductoAction() {//Eliminar cuando ya no se ocupe
 		if(this.lista_productos == null)
 			lista_productos = getDataBase();
 	}
@@ -22,7 +22,8 @@ public class ListaProductoAction extends ActionSupport{
 			System.out.println(item);
 		return ActionSupport.SUCCESS;
 	}
-
+	
+	//Eliminar cuando ya no se ocupe
 	private ArrayList<Productos> getDataBase() {
 		ArrayList<Productos> lista_productos_aux = new ArrayList<Productos>();
 		Productos producto1 = new Productos();

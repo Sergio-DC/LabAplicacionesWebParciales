@@ -1,5 +1,12 @@
 package action;
 
+/**
+ * Clase usada como referencia para implementar una comunicación con el Navegador y
+ * el servidor usando AJAX
+ * 
+ * Eliminar esta clase cuando ya no se necesite
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 

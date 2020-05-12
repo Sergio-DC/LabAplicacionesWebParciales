@@ -11,6 +11,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="agregar_usuario.jsp">Alta Usuario</a>
       <a class="nav-item nav-link active" href="agregar_producto.jsp">Alta Producto</a>
       <a class="nav-item nav-link active" href="lista_productos.jsp">Lista Producto</a>
       <a class="nav-item nav-link active" href="agregar_inventario.jsp">Agregar Inventario</a>

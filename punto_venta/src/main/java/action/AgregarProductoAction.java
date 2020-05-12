@@ -11,11 +11,11 @@ public class AgregarProductoAction extends ActionSupport{
 
 	@Override
 	public String execute() throws Exception {
-		System.out.println("Clave del Producto Saved: " + productos.getClave());
-		System.out.println("Descripcion Saved: " + productos.getDescripcion());
-		System.out.println("Unidad de Venta Saved: " + productos.getUnidad());
-		System.out.println("Invenatario Saved: " + productos.getInventario());
-		System.out.println("Precio de Venta Saved: " + productos.getPrecio());
+		System.out.println("Clave del Producto Saved: " + productos.getClave());//Eliminar cuando ya no se ocupe
+		System.out.println("Descripcion Saved: " + productos.getDescripcion());//Eliminar cuando ya no se ocupe
+		System.out.println("Unidad de Venta Saved: " + productos.getUnidad());//Eliminar cuando ya no se ocupe
+		System.out.println("Invenatario Saved: " + productos.getInventario());//Eliminar cuando ya no se ocupe
+		System.out.println("Precio de Venta Saved: " + productos.getPrecio());//Eliminar cuando ya no se ocupe
 		return "REGISTER";
 	}
 

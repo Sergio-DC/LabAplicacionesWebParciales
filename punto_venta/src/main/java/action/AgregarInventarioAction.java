@@ -10,13 +10,14 @@ import com.opensymphony.xwork2.ActionSupport;
 import pojo.Productos;
 
 public class AgregarInventarioAction extends ActionSupport {
-	private Productos producto;//Se utiliza para generar registro de una BD improvisada, eliminar si ya no se necesita
-	private int clave;//Representa la clave del producto
-	private int cantidad;//Se utiliza para actualizar la propiedad inventario de un Producto
+	private Productos producto;
+	private int clave;//Guarda la clave del producto que envia el formulario
+	private int cantidad;//Guarda la cantidad del producto que envia el formulario
 	private static List<Productos> lista_productos;//Se utiliza para generar registro de una BD improvisada, eliminar si ya no se necesita
 	private InputStream inputStream;
 
 	//Simula una BD con 5 registros de la tabla Productos
+	//Eliminar cuando ya no se ocupe
 	public AgregarInventarioAction() {
 		if(this.lista_productos == null) {
 			lista_productos = getDataBase();
@@ -35,7 +36,9 @@ public class AgregarInventarioAction extends ActionSupport {
 	
 	//Se encarga de actualizar la propiedad inventario de un objeto(Productos) en especifico 
 	public String actualizarInventario() throws Exception{
-		System.out.println("Clave: " + this.clave + "  Cantidad: " + this.cantidad);
+		System.out.println("Clave: " + this.clave + "  Cantidad: " + this.cantidad);////Eliminar cuando ya no se ocupe
+		
+		//Esto se ejecutará si el registro fue actualizado en la BD
 		inputStream = new ByteArrayInputStream("<p>Producto Actualizado</p>".getBytes("UTF-8"));
 		return ActionSupport.SUCCESS;
 		
@@ -45,6 +48,7 @@ public class AgregarInventarioAction extends ActionSupport {
 		return inputStream;
 	}
 	
+	//Eliminar cuando ya no se ocupe
 	private ArrayList<Productos> getDataBase() {
 		ArrayList<Productos> lista_productos_aux = new ArrayList<Productos>();
 		Productos producto1 = new Productos();
