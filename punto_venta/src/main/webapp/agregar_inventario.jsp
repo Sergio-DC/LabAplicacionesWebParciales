@@ -7,7 +7,10 @@
 	<title>Agregar Inventario</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
+
+
 <body>
 	<%@include file="navbar.jsp" %>
 	<div class="container">
@@ -21,6 +24,9 @@
 						</div>
 						<div class="input-group-append">
 							<input type="submit" value="buscar">
+						</div>
+						<div class="ml-6" onclick="ayuda()">
+							<span><img src="img/help_icon.png"></span>
 						</div>
 			  		</div>
 		  		</div>
@@ -37,6 +43,7 @@
 		  				<p>PZA</p>
 		  			</div>
 	  			</div>
+	  			
 		 </form>		
   		</div>
   		<div class="row justify-content-center">
@@ -51,8 +58,7 @@
 						</div>
 			  		</div>
 	  			</div>
-		 	</form>	
-		 		
+		 	</form>		 		
   		</div>
 		<div class="row justify-content-center" >
   			<div id="message"></div>
@@ -99,6 +105,10 @@
 			
 			event.preventDefault();
 		});
+		
+		function ayuda() {
+			swal("Pasos","1. Busca un producto(Por clave)\n2. El producto aparecera debajo\n3. Ingresa cantidad de entrada	");
+		}
 </script>  
 </body> 
 </html> 

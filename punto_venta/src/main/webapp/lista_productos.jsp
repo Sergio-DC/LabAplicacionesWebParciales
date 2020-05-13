@@ -76,7 +76,6 @@
 	}
 	
 	function genTemplate(data){
-			console.log("template: ", data)
 		  try{
 			 
 		    var registros = '';

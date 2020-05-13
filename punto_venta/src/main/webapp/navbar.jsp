@@ -8,7 +8,9 @@
       <a class="nav-item nav-link active" href="lista_productos.jsp">Producto</a>
       <a class="nav-item nav-link active" href="lista_usuarios.jsp">Usuarios</a>
       <a class="nav-item nav-link active" href="agregar_inventario.jsp">Inventario</a>
-      <a class="nav-item nav-link active" href="report.jsp">Report</a>
+      <a class="nav-item nav-link active" href="venta.jsp">Ventas</a>
+      
+      <h3 id="helpIcon" data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-question-sign pull-right"></span></h3>
     </div>
   </div>
 </nav>	

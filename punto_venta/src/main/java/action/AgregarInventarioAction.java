@@ -1,6 +1,7 @@
 package action;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,18 +25,26 @@ public class AgregarInventarioAction extends ActionSupport {
 		}
 	}
 	//Busca por clave un Producto
-	public String buscarPorClave() {
+	public String buscarPorClave() throws IOException{
 		for(Productos item : lista_productos) {
 			if(item.getClave() == this.clave) {
+				System.out.println("Entre: " + Integer.toString(item.getClave()) ); 
 				producto = item;
 				return ActionSupport.SUCCESS;
 			}
 		}
+		
+		inputStream = new ByteArrayInputStream("Error: Producto no encontrado".getBytes("UTF-8"));
 		return ActionSupport.ERROR;		
 	}
 	
+	public String execute() {
+		System.out.println("hola");
+		return ActionSupport.SUCCESS;
+	}
+	
 	//Se encarga de actualizar la propiedad inventario de un objeto(Productos) en especifico 
-	public String actualizarInventario() throws Exception{
+	public String actualizarInventario() throws Exception {
 		System.out.println("Clave: " + this.clave + "  Cantidad: " + this.cantidad);////Eliminar cuando ya no se ocupe
 		
 		//Esto se ejecutará si el registro fue actualizado en la BD
@@ -44,9 +53,9 @@ public class AgregarInventarioAction extends ActionSupport {
 		
 	}
 	
-	public InputStream getInputStream() {
-		return inputStream;
-	}
+//	public InputStream getInputStream() {
+//		return inputStream;
+//	}
 	
 	//Eliminar cuando ya no se ocupe
 	private ArrayList<Productos> getDataBase() {
@@ -94,25 +103,15 @@ public class AgregarInventarioAction extends ActionSupport {
 		return lista_productos_aux;
 	}
 
-	public int getClave() {
-		return clave;
-	}
-
 	public void setClave(int clave) {
+		System.out.println("Meti clave: " + clave);
 		this.clave = clave;
 	}	
-
-	public int getCantidad() {
-		return cantidad;
-	}
 
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
 	
-	public void setProducto(Productos producto) {
-		this.producto = producto;
-	}
 	public Productos getProducto() {
 		return producto;
 	}

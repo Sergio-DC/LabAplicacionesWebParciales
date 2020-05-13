@@ -32,6 +32,10 @@
 		
 		<action name="buscar_producto" class="action.AgregarInventarioAction" method="buscarPorClave">
 			<result name="success" type="json"></result>
+			<result name="error" type="stream">
+				<param name="contentType">text</param>
+        		<param name="inputName">inputStream</param>
+			</result>
 		</action>
 		
 		<action name="actualizar_producto_inventario" class="action.AgregarInventarioAction" method="actualizarInventario">
@@ -45,10 +49,6 @@
 			<result name="success" type="json"></result>
 		</action>
 		
-		<action name="consultar_productos" class="action.ListaProductoAction">
-			<result name="success" type="json"></result>
-		</action>
-
     </package>
 
     <!-- Add addition packages and configuration here. -->
