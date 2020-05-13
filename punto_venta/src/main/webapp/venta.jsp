@@ -85,15 +85,37 @@
 		
 		$('#btn_fin_venta').click(function() {
 			var auxTotal = $('#total').val();
+			
+			var aux1;
+			var aux2;
+			var aux3;
+			var aux4;
+			var aux5;
+			var aux6;
+			
 			for (var i = 0; i < sessionStorage.length; i++) {
 				var index = sessionStorage.key(i);
 		        var value = JSON.parse(sessionStorage.getItem(index));
+<<<<<<< HEAD
 	    		console.log("Valor que envio: ", value);
 	    		
+=======
+		        console.log(value);
+		        
+		        aux1 = value.clave;
+		        aux2 = value.descripcion;
+		        aux3 = value.unidad;
+		        aux4 = value.cantidad;
+		        aux5 = value.precio;
+		        aux6 = value.precio_final;
+		       
+		        
+>>>>>>> 94bcd697a745d30cc44072c113de69ab4b712578
 		        $.ajax({
 					type : 'POST',
 					url : 'registrar_venta.action',
 					data : 'producto_venta=' + value,
+					data : "producto_venta.clave=" + aux1 + "&producto_venta.descripcion=" + aux2 + "&producto_venta.unidad=" + aux3 + "&producto_venta.cantidad=" + aux4 + "&producto_venta.precio_uni=" + aux5 + "&producto_venta.precio_fin=" + aux6,
 					success : function(data){
 						console.log("Venta Exitosa");
 					}, 
