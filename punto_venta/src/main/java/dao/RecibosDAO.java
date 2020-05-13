@@ -19,18 +19,24 @@ public class RecibosDAO {
 	}
 	
 	// Registrar nuevo recibo
-	public static boolean insertRecibo(int folio, String user_id, String fecha, String hora, int monto, String tipo_pago) throws SQLException, Exception
+	//public static boolean insertRecibo(int folio, String user_id, String fecha, String hora, int monto, String tipo_pago) throws SQLException, Exception
+	public static boolean insertRecibo(String user_id, String fecha, String hora, int monto) throws SQLException, Exception
 	{
-		String sql = "INSERT INTO RECIBOS (folio, user_id, fecha, hora, monto, tipo_pago)";
-		sql += "VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO RECIBOS (user_id, fecha, hora, monto)";
+		sql += "VALUES (?,?,?,?,?)";
 		try {
 			PreparedStatement ps = conn().prepareStatement(sql);
-			ps.setString(1, Integer.toString(folio));
+			/*ps.setString(1, Integer.toString(folio));
 			ps.setString(2, user_id);
 			ps.setString(3, fecha);
 			ps.setString(4, hora);
 			ps.setString(5, Integer.toString(monto));
-			ps.setString(6, tipo_pago);
+			ps.setString(6, tipo_pago);*/
+			
+			ps.setString(1, user_id);
+			ps.setString(2, fecha);
+			ps.setString(3, hora);
+			ps.setString(4, Integer.toString(monto));
 			
 			ps.execute();
 			conn().close();
