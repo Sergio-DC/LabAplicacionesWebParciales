@@ -1,5 +1,8 @@
 package action;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,6 +16,7 @@ public class UsuarioAction extends ActionSupport{
 	private Usuarios usuarios;
 	private static List<Usuarios> lista_usuarios;
 	private String auxUserId;
+	private InputStream inputStream;
 	
 	public Usuarios getUsuarios() {
 		return usuarios;
@@ -95,17 +99,28 @@ public class UsuarioAction extends ActionSupport{
 		}
 	}
 	
-	public String getUsuarioData()
+	public String getUsuarioData() throws IOException
 	{	System.out.println("user_id: " + this.auxUserId);
 		try
 		{
 			usuarios = UsuarioDAO.searchUsuario(auxUserId);
+			String messageToClient = "Usuario Editado";
+			inputStream = new ByteArrayInputStream(messageToClient.getBytes("UTF-8"));
 			return SUCCESS;
 		}catch (Exception e)
 		{
 			e.printStackTrace();
-			//mensajeError = "Error al cargar la lista de usuarios";
+			String messageToClient = "Error al editar el usuario";
+			inputStream = new ByteArrayInputStream(messageToClient.getBytes("UTF-8"));
 			return ERROR;
 		}
 	}
+	public InputStream getInputStream() {
+		return inputStream;
+	}
+	public void setInputStream(InputStream inputStream) {
+		this.inputStream = inputStream;
+	}
+	
+	
 }

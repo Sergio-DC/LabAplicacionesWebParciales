@@ -20,7 +20,7 @@
 			<form id="form-producto" action="" class="">
 			  <div class="form-group">
 					<label for="nombre">Usuario:</label>
-					<input type="text" class="form-control " placeholder="1234" id="usuario">			  
+					<input type="text" class="form-control " placeholder="1234" id="usuario" readonly>			  
 			  </div>
 			  <div class="form-group">
 					<label for="pwd">Nombre:</label>
@@ -49,7 +49,7 @@
 				  </select>
 			  </div>
 			  
-			  <input class="btn btn-outline-success" type="submit" onclick="agregarProducto();" value="Agregar Usuario">
+			  <input class="btn btn-outline-success" type="submit" value="Editar">
 			</form>
 		</div>
 	</div>
@@ -58,7 +58,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		var user_id = getUrlVars()['user_id'];
-		console.log("Y el valor es: " + user_id);
 		
 		$.ajax({
 			type : "POST",
@@ -92,6 +91,28 @@
 	    }
 	    return vars;
 	}
+	
+	$('#form-producto').submit(function(event) {
+		var usuario = $('#usuario').val();
+		var nombre = $('#nombre').val();
+		var password = $('#pass').val();
+		var rol = $('#rol').val();
+		var estatus = $('#estatus').val();
+		console.log("nombre: " + nombre + "  password: " + password + "  rol: " + rol + "  estatus: " + estatus);
+		$.ajax({
+			type : 'POST',
+			url : 'editarUsuario.action',
+			data: 'usuarios.user_id=' + usuario + '&usuarios.user_name=' + nombre + '&usuarios.user_password=' + password + '&usuarios.user_rol=' + rol + '&usuarios.user_status=' + estatus,
+			success : function(data) {
+				console.log("data: ", data);
+			},
+			error : function (error) {
+				console.log("error: ", error);
+			}
+		});
+		
+		event.preventDefault();
+	});
 </script>
 </body>
 </html>
