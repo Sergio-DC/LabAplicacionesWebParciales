@@ -101,9 +101,7 @@
 				url : "editar_producto.action",
 				data : "productos.clave=" + clave + "&productos.descripcion=" + descripcion + "&productos.unidad=" + unidad + "&productos.inventario=" + inventario + "&productos.precio=" + precio,
 				success : function(data) {
-					var ht = data.productos.descripcion;
-					console.log("mensaje del server: ", ht);
-					//$("#resp").html(ht);
+					console.log("Producto Actualizado");
 				},
 				error : function(data) {
 					alert("Some error occured.");

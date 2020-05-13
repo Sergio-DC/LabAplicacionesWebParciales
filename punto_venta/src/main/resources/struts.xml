@@ -61,8 +61,7 @@
 			<result name="success" type="json"></result>
 			<result name="error" type="json"></result>
 		</action>
-		
-<<<<<<< HEAD
+	
 		<action name="editarUsuario" class="action.UsuarioAction" method="editarUsuario">
 			<result name="success" type="stream">
 				<param name="contentType">text</param>
@@ -74,14 +73,16 @@
 			</result>
 		</action>
 		
-=======
     	<action name="editar_producto" class="action.ProductoAction" method="editarProducto">
-    		<result type="success">
+    		<result name="success" type="stream">
         		<param name="contentType">text/html</param>
         		<param name="inputName">inputStream</param>
     		</result>
+    		<result name="error" type="stream">
+				<param name="contentType">text</param>
+        		<param name="inputName">inputStream</param>
+			</result>
 		</action>
->>>>>>> b97d3ddf571ec4a71d4102aba048e988aea60d96
     </package>
 
     <!-- Add addition packages and configuration here. -->
