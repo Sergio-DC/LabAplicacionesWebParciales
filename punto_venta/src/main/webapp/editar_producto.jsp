@@ -66,32 +66,7 @@
 					alert("Some error occured.");
 				}
 	});
-	function editarProducto() {
-		/*var clave = $("#clave").val();
-		var descripcion = $("#descripcion").val();
-		var unidad = $("#unidad").val();
-		var inventario = $("#inventario").val();
-		var precio = $('#precio').val();*/
-		
-		$('#form-producto').submit(function(event) {
-			$.ajax({
-				type : "POST",
-				url : "editar_producto.action",
-				data : "productos.clave=" + clave + "&productos.descripcion=" + descripcion + "&productos.unidad=" + unidad + "&productos.inventario=" + inventario + "&productos.precio=" + precio,
-				success : function(data) {
-					var ht = data.productos.descripcion;
-					console.log("mensaje del server: ", ht);
-					//$("#resp").html(ht);
-				},
-				error : function(data) {
-					alert("Some error occured.");
-				}
-			});
-			
-			event.preventDefault();
-		});
-		
-		
+	
 	}
 </script>
 </body>
