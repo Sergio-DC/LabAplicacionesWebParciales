@@ -90,7 +90,7 @@ public class ReciboVentaActions extends ActionSupport {
 	}
 	
 	// Registra la venta en la BD
-	public String registrarVenta()
+	/*public String registrarVenta()
 	{
 		String datesyst = "";
 		String timesyst = "";
@@ -116,6 +116,20 @@ public class ReciboVentaActions extends ActionSupport {
 			//mensajeError = "Error al crear usuario";
 			return ERROR;
 		}
+	}*/
+	
+	public String registrarVenta()
+	{
+		int nexFolio = 100;
+		try
+		{
+			VentasDAO.insertVenta(producto_venta.getClave(), nexFolio, producto_venta.getCantidad(), producto_venta.getPrecio_fin());
+			return SUCCESS;
+		}catch (Exception e)
+		{
+			e.printStackTrace();
+			//mensajeError = "Error al crear usuario";
+			return ERROR;
+		}
 	}
-
 }
