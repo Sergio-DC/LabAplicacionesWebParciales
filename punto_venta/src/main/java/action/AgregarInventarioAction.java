@@ -15,6 +15,7 @@ public class AgregarInventarioAction extends ActionSupport {
 	private Productos producto;
 	private int clave;//Guarda la clave del producto que envia el formulario
 	private int cantidad;//Guarda la cantidad del producto que envia el formulario
+	private int cantidadActualizada;
 	private static List<Productos> lista_productos;//Se utiliza para generar registro de una BD improvisada, eliminar si ya no se necesita
 	private InputStream inputStream;
 	
@@ -40,12 +41,11 @@ public class AgregarInventarioAction extends ActionSupport {
 	
 	//Se encarga de actualizar la propiedad inventario de un objeto(Productos) en especifico 
 	public String actualizarInventario() throws Exception {
-		System.out.println("Clave: " + this.clave + "  Cantidad: " + this.cantidad);////Eliminar cuando ya no se ocupe
+		System.out.println("Clave: " + this.clave + "  Cantidad: " + this.cantidad + "  Cantidad Actualizada: " + cantidadActualizada);////Eliminar cuando ya no se ocupe
 		
 		try
 		{
-			ProductoDAO.updateInventario(clave, cantidad);
-			
+			ProductoDAO.updateInventario(clave, cantidadActualizada);
 			inputStream = new ByteArrayInputStream("<p>Producto Actualizado</p>".getBytes("UTF-8"));
 			return SUCCESS;
 		}catch (Exception e)
@@ -62,18 +62,40 @@ public class AgregarInventarioAction extends ActionSupport {
 //		return inputStream;
 //	}
 	
+	public Productos getProducto() {
+		return producto;
+	}
+
+	public int getCantidadActualizada() {
+		return cantidadActualizada;
+	}
+
+	public int getClave() {
+		return clave;
+	}
 
 	public void setClave(int clave) {
-		System.out.println("Meti clave: " + clave);
 		this.clave = clave;
-	}	
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
 
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-	
-	public Productos getProducto() {
-		return producto;
+
+	public void setProducto(Productos producto) {
+		this.producto = producto;
+	}
+
+	public void setCantidadActualizada(int cantidadActualizada) {
+		this.cantidadActualizada = cantidadActualizada;
+	}
+
+	public InputStream getInputStream() {
+		return inputStream;
 	}
 	
 	

@@ -76,6 +76,7 @@
 				success : function(data) {
 					var producto = data.producto
 					console.log("Data :): ", data.producto)
+					sessionStorage.setItem('inventario', producto.inventario)
 					//Pintar Datos obtenidos del server en el html
 					$('#descripcion').text(producto.descripcion);
 					$('#unidad').text(producto.unidad);
@@ -90,10 +91,13 @@
 		$('#form-actualizar').submit(function(event){
 			var clave = $('#clave').val();
 			var cantidad = $('#cantidad').val();
+			var inventario = sessionStorage.getItem('inventario');
+			var cantidadActualizada = parseInt(inventario,10) + parseInt(cantidad, 10);
+			console.log("Que hay en inventario: ", inventario);
 			$.ajax({
 				type: 'POST',
 				url: 'actualizar_producto_inventario.action',
-				data: 'clave=' + clave + '&cantidad=' + cantidad,
+				data: 'clave=' + clave + '&cantidad=' + cantidad + '&cantidadActualizada=' + cantidadActualizada,
 				success : function(data) {
 					console.log("Actualizacion Exitosa: ", data);
 					$('#message').html(data);
