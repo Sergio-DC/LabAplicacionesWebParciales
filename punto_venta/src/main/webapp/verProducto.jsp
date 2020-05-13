@@ -5,16 +5,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<title>Ver Producto</title>
+	<title>Editar Producto</title>
 </head>
 
 
 <body>
 	<%@include file="navbar.jsp" %>
 	<div class="container mt-3">
-		<H3 class="text-center">Ver Producto</H3>
+		<H3 class="text-center">Editar Producto</H3>
 		
 		<div class="row justify-content-center">
 			<form id="form-producto" action="" class="">
@@ -30,9 +31,6 @@
 						<label for="mail">Unidad de venta:</label>
 						<div class="input-group mb-2 mr-sm-2">
 							<input type="text" class="form-control" placeholder="Pza" id="unidad">
-							<div class="input-group-append">
-								<div class="input-group-text">@example.com</div>
-							</div>
 				  		</div>
 			  </div>
 			  
@@ -101,16 +99,15 @@
 				url : "editar_producto.action",
 				data : "productos.clave=" + clave + "&productos.descripcion=" + descripcion + "&productos.unidad=" + unidad + "&productos.inventario=" + inventario + "&productos.precio=" + precio,
 				success : function(data) {
-					console.log("Producto Actualizado");
+					swal("Producto Editado", "Exitosamente", "success");	
 				},
 				error : function(data) {
-					alert("Some error occured.");
+					swal("Ocurrio un Error", ":(", "error");	
 				}
 			});
 			
 			event.preventDefault();
-		});
-		
+		});	
 	}
 	
 </script>

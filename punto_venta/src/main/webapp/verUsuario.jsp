@@ -5,16 +5,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<title>Alta Producto</title>
+	<title>Editar Producto</title>
 </head>
 
 
 <body>
 	<%@include file="navbar.jsp" %>
 	<div class="container mt-3">
-		<H3 class="text-center">Alta Usuario</H3>
+		<H3 class="text-center">Editar Usuario</H3>
 		
 		<div class="row justify-content-center">
 			<form id="form-producto" action="" class="">
@@ -104,10 +105,10 @@
 			url : 'editarUsuario.action',
 			data: 'usuarios.user_id=' + usuario + '&usuarios.user_name=' + nombre + '&usuarios.user_password=' + password + '&usuarios.user_rol=' + rol + '&usuarios.user_status=' + estatus,
 			success : function(data) {
-				console.log("data: ", data);
+				swal("Usuario Editado", "Exitosamente", "success");
 			},
 			error : function (error) {
-				console.log("error: ", error);
+				swal("Ocurrio un error", "Al editar usuario :(", "error");
 			}
 		});
 		

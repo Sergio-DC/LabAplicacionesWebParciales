@@ -70,9 +70,13 @@
 					producto.cantidad = cantidad;
 					producto.precio_final = parseInt(producto.cantidad, 10) * parseInt(producto.precio, 10);
 					productoAux = JSON.stringify(producto);
-					sessionStorage.setItem(producto.clave, productoAux);
-					auxTotal = parseInt(auxTotal,10) + parseInt(producto.precio_final, 10);
-					$('#total').val(auxTotal);
+					if(clave == producto.clave) {
+						sessionStorage.setItem(producto.clave, productoAux);
+						auxTotal = parseInt(auxTotal,10) + parseInt(producto.precio_final, 10);
+						$('#total').val(auxTotal);
+					} else {
+						swal("El producto No existe", ":(", "error");
+					}
 					var registro = genTemplate(cantidad);
 					$('#tbody-entrada').html(registro);
 				}, error : function(data) {
@@ -86,38 +90,19 @@
 		$('#btn_fin_venta').click(function() {
 			var auxTotal = $('#total').val();
 			
-			var aux1;
-			var aux2;
-			var aux3;
-			var aux4;
-			var aux5;
-			var aux6;
-			
 			for (var i = 0; i < sessionStorage.length; i++) {
 				var index = sessionStorage.key(i);
 		        var value = JSON.parse(sessionStorage.getItem(index));
-<<<<<<< HEAD
+
 	    		console.log("Valor que envio: ", value);
 	    		
-=======
-		        console.log(value);
-		        
-		        aux1 = value.clave;
-		        aux2 = value.descripcion;
-		        aux3 = value.unidad;
-		        aux4 = value.cantidad;
-		        aux5 = value.precio;
-		        aux6 = value.precio_final;
-		       
-		        
->>>>>>> 94bcd697a745d30cc44072c113de69ab4b712578
 		        $.ajax({
 					type : 'POST',
 					url : 'registrar_venta.action',
 					data : 'producto_venta=' + value,
-					data : "producto_venta.clave=" + aux1 + "&producto_venta.descripcion=" + aux2 + "&producto_venta.unidad=" + aux3 + "&producto_venta.cantidad=" + aux4 + "&producto_venta.precio_uni=" + aux5 + "&producto_venta.precio_fin=" + aux6,
 					success : function(data){
-						console.log("Venta Exitosa");
+						swal("Lo sentimos profesor", "Esto no funciono :(", "error");
+						sessionStorage.clear();
 					}, 
 					error : function(data) {
 						alert("Some error occured.");
@@ -125,10 +110,7 @@
 				});		        
 		        
 			}
-			
-			
-			
-			
+						
 		});
 		
 	function cancelar() {
@@ -149,10 +131,12 @@
 		    for (var i = 0; i < sessionStorage.length; i++) {
 		        var index = sessionStorage.key(i);
 		        var value = JSON.parse(sessionStorage.getItem(index));
-		        console.log("value: " + value.descripcion);
+		        console.log("value: " + value);
+		        
 		        registro += '<tr><td>' + value.clave + '</td><td>' + value.descripcion + '</td>';
 		      	registro += '<td>' + value.unidad + '</td><td>' + value.cantidad + '</td>';
 			    registro += '<td>' + value.precio + '</td><td>' + value.precio_final + "</td></tr>";
+	       
 		    }		    
 			//Actualizar Precio Total
 		    return registro;
