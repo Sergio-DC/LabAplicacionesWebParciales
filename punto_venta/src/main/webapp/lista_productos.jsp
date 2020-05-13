@@ -60,15 +60,8 @@
         actualizarInfo();
     });
 
-	function limpiar(){
-	  var template = "";
-	  $('#tbody-entrada').html(template);
-	  $('form').trigger('reset');
-	  $('#CodigoB').removeClass('is-valid');
-	  $('#CodigoB').removeClass('is-invalid');
-	}
 	function actualizarInfo() {
-	  $.get("consultar_productos", function (response, status) {
+	  $.get("consultar_producto.action", function (response, status) {
 	      var registros = genTemplate(response.lista_productos);
 	
 	        $('#tbody-entrada').html(registros);

@@ -18,7 +18,7 @@
                     <div class="col-4">
                         <input type="text"  placeholder="Ingresa la clave del producto" id="CodigoB" class="form-control" required>
                     </div>
-                    <a name="" href="agregar_producto.jsp" class="btn btn-outline-success btn-lg" onclick="">Nuevo Usuario</a>
+                    <a name="" href="agregar_usuario.jsp" class="btn btn-outline-success btn-lg" onclick="">Nuevo Usuario</a>
                     <!-- <input type="button" name="" class="btn btn-outline-danger btn-lg" onclick="limpiar()" value="Limpiar"> -->
            
                 </div>

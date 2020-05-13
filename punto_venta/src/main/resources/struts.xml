@@ -14,12 +14,12 @@
             <result>index.jsp</result>
         </action>
         
+        <action name="consultar_producto" class="action.ListaProductoAction">
+        	<result name="success" type="json"></result>
+        </action>
+        
         <action name="registeruser" class="action.RegisterAction">
 			<result name="REGISTER" type="json"></result>
-		</action>
-		
-		<action name="report" class="action.ReportAction">
-			<result name="REPORT" type="json"></result>
 		</action>
 		
 		<action name="agregar_usuario" class="action.AgregarUsuarioAction">

@@ -62,8 +62,13 @@
 		var rol = $("#rol").val();
 		var estatus = $("#estatus").val();
 		
+		console.log("usuario: ", usuario);
 		console.log("nombre: ", nombre);
+		console.log("password: ", password);
+		console.log("rol: ", rol);
+		console.log("estatus: ", estatus);
 		
+		console.log("usuario.user_id=" + usuario + "&usuario.user_name=" + nombre + "&usuario.user_password=" + password + "&usuario.user_rol=" + rol + "&usuario.user_status=" + estatus);
 		
 		$('#form-producto').submit(function(event) {
 			$.ajax({
