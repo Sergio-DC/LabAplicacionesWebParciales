@@ -42,7 +42,6 @@ Create table RECIBOS (
 	fecha Date NOT NULL,
 	hora Time NOT NULL,
 	monto Int NOT NULL,
-	tipo_pago Varchar(20),
 	UNIQUE (folio),
  Primary Key (folio)) ENGINE = MyISAM;
 
