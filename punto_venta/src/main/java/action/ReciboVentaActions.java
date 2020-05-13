@@ -130,8 +130,8 @@ public class ReciboVentaActions extends ActionSupport {
 	
 	public String registrarVenta() throws IOException
 	{	
-		System.out.println("Venta");
-		System.out.println(this.producto_venta.toString());
+		//System.out.println("Venta");
+		//System.out.println(this.producto_venta.toString());
 		int nexFolio = 100;
 		try
 		{
