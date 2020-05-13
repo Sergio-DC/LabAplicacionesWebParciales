@@ -1,5 +1,7 @@
 package action;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,6 +15,7 @@ public class ProductoAction extends ActionSupport {
 	private Productos productos;
 	private static List<Productos> lista_productos;
 	private int auxClave;
+	private InputStream inputStream;
 	
 	public static List<Productos> getLista_productos() {
 		return lista_productos;
@@ -38,6 +41,14 @@ public class ProductoAction extends ActionSupport {
 		this.auxClave = auxClave;
 	}
 	
+	public InputStream getInputStream() {
+		return inputStream;
+	}
+
+	public void setInputStream(InputStream inputStream) {
+		this.inputStream = inputStream;
+	}
+
 	public String agregarProducto()
 	{
 		//ProductoDAO daoproducto = new ProductoDAO();
@@ -59,11 +70,13 @@ public class ProductoAction extends ActionSupport {
 		try
 		{
 			ProductoDAO.updateProducto(productos.getClave(), productos.getDescripcion(), productos.getUnidad(), productos.getInventario(), productos.getPrecio());
+			inputStream = new ByteArrayInputStream("<p>Producto Actualizado</p>".getBytes("UTF-8"));
 			return SUCCESS;
 		}catch (Exception e)
 		{
 			e.printStackTrace();
 			//mensajeError = "Error al editar producto";
+			//inputStream = new ByteArrayInputStream("<p>Producto Actualizado</p>".getBytes("UTF-8"));
 			return ERROR;
 		}
 	}

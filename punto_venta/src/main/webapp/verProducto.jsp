@@ -20,7 +20,7 @@
 			<form id="form-producto" action="" class="">
 			  <div class="form-group">
 					<label for="nombre">Clave del Producto:</label>
-					<input type="text" class="form-control" id="clave">			  
+					<input type="text" class="form-control" id="clave" readonly>			  
 			  </div>
 			  <div class="form-group">
 					<label for="pwd">Descripcion:</label>
@@ -46,6 +46,7 @@
 					<input type="text" class="form-control" placeholder="$12" id="precio">
 			  </div>
 			  
+			  <input class="btn btn-outline-success" type="submit" onclick="editarProducto();" value="Editar Producto">
 			</form>
 		</div>
 	</div>
@@ -85,6 +86,33 @@
 	        vars[hash[0]] = hash[1];
 	    }
 	    return vars;
+	}
+	
+	function editarProducto() {
+		var clave = $("#clave").val();
+		var descripcion = $("#descripcion").val();
+		var unidad = $("#unidad").val();
+		var inventario = $("#inventario").val();
+		var precio = $('#precio').val();
+		
+		$('#form-producto').submit(function(event) {
+			$.ajax({
+				type : "POST",
+				url : "editar_producto.action",
+				data : "productos.clave=" + clave + "&productos.descripcion=" + descripcion + "&productos.unidad=" + unidad + "&productos.inventario=" + inventario + "&productos.precio=" + precio,
+				success : function(data) {
+					var ht = data.productos.descripcion;
+					console.log("mensaje del server: ", ht);
+					//$("#resp").html(ht);
+				},
+				error : function(data) {
+					alert("Some error occured.");
+				}
+			});
+			
+			event.preventDefault();
+		});
+		
 	}
 	
 </script>

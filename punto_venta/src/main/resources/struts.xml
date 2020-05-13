@@ -62,6 +62,12 @@
 			<result name="error" type="json"></result>
 		</action>
 		
+    	<action name="editar_producto" class="action.ProductoAction" method="editarProducto">
+    		<result type="success">
+        		<param name="contentType">text/html</param>
+        		<param name="inputName">inputStream</param>
+    		</result>
+		</action>
     </package>
 
     <!-- Add addition packages and configuration here. -->
