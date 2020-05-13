@@ -66,5 +66,13 @@ public class VentaTabla {
 	public void setPrecio_fin(int precio_fin) {
 		this.precio_fin = precio_fin;
 	}
+
+	@Override
+	public String toString() {
+		return "VentaTabla [clave=" + clave + ", descripcion=" + descripcion + ", unidad=" + unidad + ", cantidad="
+				+ cantidad + ", precio_uni=" + precio_uni + ", precio_fin=" + precio_fin + "]";
+	}
+	
+	
 	
 }

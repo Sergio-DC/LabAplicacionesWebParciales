@@ -1,5 +1,8 @@
 package action;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,7 +24,14 @@ public class ReciboVentaActions extends ActionSupport {
 	private String auxUserId;
 	private int auxClave, auxCantidad, auxImporte;
 	private Productos aux_producto;
+	private InputStream inputStream;
 	
+	public InputStream getInputStream() {
+		return inputStream;
+	}
+	public void setInputStream(InputStream inputStream) {
+		this.inputStream = inputStream;
+	}
 	public VentaTabla getProducto_venta() {
 		return producto_venta;
 	}
@@ -118,8 +128,10 @@ public class ReciboVentaActions extends ActionSupport {
 		}
 	}*/
 	
-	public String registrarVenta()
-	{
+	public String registrarVenta() throws IOException
+	{	
+		System.out.println("Venta");
+		System.out.println(this.producto_venta.toString());
 		int nexFolio = 100;
 		try
 		{
@@ -129,6 +141,7 @@ public class ReciboVentaActions extends ActionSupport {
 		{
 			e.printStackTrace();
 			//mensajeError = "Error al crear usuario";
+			inputStream = new ByteArrayInputStream("Error: Producto no encontrado".getBytes("UTF-8"));
 			return ERROR;
 		}
 	}

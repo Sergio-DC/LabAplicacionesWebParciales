@@ -43,11 +43,11 @@
                             </tr>
                         </thead>
                         <tbody id="tbody-entrada">
-
                         </tbody>
                         
                         <div class="row justify-content-around">
-                        	<div><label>Total: </label><p id="total"> </p></div>
+                        	<button class="btn btn-warning" id="btn_fin_venta">Finalizar Venta</button>
+                        	<div><label>Total: </label><input id="total" type="text" value=0> </input></div>                        	
                         </div>
                     </table>
                 </div>
@@ -56,26 +56,24 @@
     </div>
    
 <script type="text/javascript">
-
 		$('#form1').submit(function(event) {
 			console.log("Evento: ", event);
 			var clave = $('#clave').val();
 			var cantidad = $('#cantidad').val();
+			var auxTotal = $('#total').val();
 			$.ajax({
 				type : 'POST',
 				url : 'buscar_producto.action',
 				data : 'clave=' + clave,
 				success : function(data){
 					var producto = data.producto;
-					console.log("producto: ", producto);
 					producto.cantidad = cantidad;
-					producto.precio_final = producto.cantidad * producto.precio;
-					//sessionStorage.setItem('total', producto.total + producto.precio_final);
+					producto.precio_final = parseInt(producto.cantidad, 10) * parseInt(producto.precio, 10);
 					productoAux = JSON.stringify(producto);
 					sessionStorage.setItem(producto.clave, productoAux);
-					
+					auxTotal = parseInt(auxTotal,10) + parseInt(producto.precio_final, 10);
+					$('#total').val(auxTotal);
 					var registro = genTemplate(cantidad);
-					console.log("registro: ", registro)
 					$('#tbody-entrada').html(registro);
 				}, error : function(data) {
 					alert("Some error occured.");
@@ -83,6 +81,31 @@
 			});
 			
 			event.preventDefault();
+		});
+		
+		$('#btn_fin_venta').click(function() {
+			var auxTotal = $('#total').val();
+			for (var i = 0; i < sessionStorage.length; i++) {
+				var index = sessionStorage.key(i);
+		        var value = JSON.parse(sessionStorage.getItem(index));
+	    		
+		        $.ajax({
+					type : 'POST',
+					url : 'registrar_venta.action',
+					data : 'producto_venta=' + value,
+					success : function(data){
+						console.log("Venta Exitosa");
+					}, 
+					error : function(data) {
+						alert("Some error occured.");
+					}
+				});		        
+		        
+			}
+			
+			
+			
+			
 		});
 		
 	function cancelar() {
@@ -109,8 +132,6 @@
 			    registro += '<td>' + value.precio + '</td><td>' + value.precio_final + "</td></tr>";
 		    }		    
 			//Actualizar Precio Total
-		    $('#total').val(value)
-		    
 		    return registro;
 		
 		  }catch(error){

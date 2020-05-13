@@ -49,8 +49,12 @@
 			<result name="success" type="json"></result>
 		</action>
 		
-		<action name="registrar_venta" class="action.ReciboVentaAction" method = "registrarVenta">
+		<action name="registrar_venta" class="action.ReciboVentaActions" method = "registrarVenta">
 			<result name="success" type="json"></result>
+			<result name="error" type="stream">
+				<param name="contentType">text</param>
+        		<param name="inputName">inputStream</param>
+			</result>
 		</action>
 		
     </package>
