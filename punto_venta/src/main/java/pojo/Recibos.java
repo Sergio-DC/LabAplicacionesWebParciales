@@ -10,18 +10,16 @@ public class Recibos {
 	private LocalDate fecha;
 	private LocalTime hora;
 	private String monto;
-	private String tipo_pago;
 	
 	public Recibos() {}
 	
-	public Recibos(int folio, String user_id, LocalDate fecha, LocalTime hora, String monto, String tipo_pago) {
+	public Recibos(int folio, String user_id, LocalDate fecha, LocalTime hora, String monto) {
 		super();
 		this.folio = folio;
 		this.user_id = user_id;
 		this.fecha = fecha;
 		this.hora = hora;
 		this.monto = monto;
-		this.tipo_pago = tipo_pago;
 	}
 	
 	public int getFolio() {
@@ -54,11 +52,4 @@ public class Recibos {
 	public void setMonto(String monto) {
 		this.monto = monto;
 	}
-	public String getTipo_pago() {
-		return tipo_pago;
-	}
-	public void setTipo_pago(String tipo_pago) {
-		this.tipo_pago = tipo_pago;
-	}	
-	
 }
