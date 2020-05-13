@@ -15,6 +15,7 @@ public class ReciboVentaActions extends ActionSupport {
 	private static List<VentaTabla> lista_venta;
 	private String auxUserId;
 	private int auxClave, auxCantidad, auxImporte;
+	private Productos aux_producto;
 	
 	public VentaTabla getProducto_venta() {
 		return producto_venta;
