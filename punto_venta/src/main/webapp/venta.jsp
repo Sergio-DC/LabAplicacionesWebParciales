@@ -88,6 +88,7 @@
 			for (var i = 0; i < sessionStorage.length; i++) {
 				var index = sessionStorage.key(i);
 		        var value = JSON.parse(sessionStorage.getItem(index));
+	    		console.log("Valor que envio: ", value);
 	    		
 		        $.ajax({
 					type : 'POST',

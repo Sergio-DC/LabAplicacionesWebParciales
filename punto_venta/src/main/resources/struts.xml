@@ -49,12 +49,17 @@
 			<result name="success" type="json"></result>
 		</action>
 		
-		<action name="registrar_venta" class="action.ReciboVentaActions" method = "registrarVenta">
+		<action name="registrar_venta" class="action.ReciboVentaActions" method="registrarVenta">
 			<result name="success" type="json"></result>
 			<result name="error" type="stream">
 				<param name="contentType">text</param>
         		<param name="inputName">inputStream</param>
 			</result>
+		</action>
+		
+		<action name="buscarUsuario" class="action.UsuarioAction" method="getUsuarioData">
+			<result name="success" type="json"></result>
+			<result name="error" type="json"></result>
 		</action>
 		
     </package>

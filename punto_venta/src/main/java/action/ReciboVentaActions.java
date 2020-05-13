@@ -136,13 +136,13 @@ public class ReciboVentaActions extends ActionSupport {
 		try
 		{
 			VentasDAO.insertVenta(producto_venta.getClave(), nexFolio, producto_venta.getCantidad(), producto_venta.getPrecio_fin());
-			return SUCCESS;
+			return ActionSupport.SUCCESS;
 		}catch (Exception e)
 		{
 			e.printStackTrace();
 			//mensajeError = "Error al crear usuario";
 			inputStream = new ByteArrayInputStream("Error: Producto no encontrado".getBytes("UTF-8"));
-			return ERROR;
+			return ActionSupport.ERROR;
 		}
 	}
 }

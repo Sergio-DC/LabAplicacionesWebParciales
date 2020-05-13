@@ -32,8 +32,7 @@
                             <tr>
                                 <th>Usuario</th>
                                 <th>Nombre</th>
-                                <th>Rol</th>
-                                <th>Estatus</th>
+                                <th>Seleccionar</th>
                                 
                             </tr>
                         </thead>
@@ -68,8 +67,7 @@
 	}
 	function actualizarInfo() {
 	  $.get("consultar_usuarios", function (response, status) {
-		  console.log("Pase 3");
-		  console.log("Msg: ", response);
+		  console.log("lista_usuarios: " + response.lista_usuarios)
 	      var registros = genTemplate(response.lista_usuarios);
 	
 	        $('#tbody-entrada').html(registros);
@@ -86,7 +84,7 @@
 		    console.log(`Fifteen is ${a}`);
 		    data.forEach(element => {
 			      registros += '<tr><td>' + element.user_id + '</td><td>' + element.user_name + '</td>';
-			      registros += '<td>' + element.user_rol + '</td><td>' + element.user_status + '</td></tr>';
+			      registros += '<td><a href="verUsuario.jsp?user_id=' + element.user_id +'">Seleccionar</a></td></tr>';
 		    });
 		    //console.log("registros: ", registros);
 		    return registros;

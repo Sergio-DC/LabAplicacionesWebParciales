@@ -34,7 +34,7 @@
                             <tr>
                                 <th>Clave</th>
                                 <th>Descripción</th>
-                                <th>Precio</th>
+                                <th>Seleccionar</th>
                                 
                             </tr>
                         </thead>
@@ -77,7 +77,7 @@
 		    console.log(`Fifteen is ${a}`);
 		    data.forEach(element => {
 			      registros += '<tr><td>' + element.clave + '</td><td>' + element.descripcion + '</td>'
-			      registros += '</td><td>' + element.precio + '</td></tr>';
+			      registros += '</td><td><a href="verProducto.jsp?clave=' + element.clave + '">Seleccionar</a></td></tr>';
 		    });
 		    //console.log("registros: ", registros);
 		    return registros;

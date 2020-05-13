@@ -96,7 +96,7 @@ public class UsuarioAction extends ActionSupport{
 	}
 	
 	public String getUsuarioData()
-	{
+	{	System.out.println("user_id: " + this.auxUserId);
 		try
 		{
 			usuarios = UsuarioDAO.searchUsuario(auxUserId);
